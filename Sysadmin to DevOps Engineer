@@ -1,0 +1,73 @@
+<div class="is-section is-box is-bg-grey is-section-20 type-poppins" data-cat="101" id="1694194490978">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container is-content-800">
+									<div class="row clearfix">
+										<div class="column full">
+											<h1>Sysadmin to DevOps Engineer</h1>
+											<p>{{DATE}}</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+<div class="is-section is-section-100 is-box type-spectralsc-karma" data-cat="118" id="1694194490979">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container" style="max-width: 960px;">
+									<div class="row clearfix">
+										<div class="column full">
+											<img src="/s/articles/64fb5b36e4b09eb17eda6f37/images/5TdeGblog1.jpg" alt="" data-filename="blog1.jpg">
+										</div>
+									</div>
+									<div class="row clearfix">
+										<div class="column full" style="text-align: justify;">
+											
+											<p style="text-align: justify;"></p><p>Ever since the DevOps term has been evolved in IT industry, it is gaining skyrocket popularity. Not only it is getting popular, organizations are also trying to adapt it as soon as possible to sustain in the disruptive market. Hence there is a lot of need of DevOps engineer out there with a handsome paycheck.</p><p>The DevOps Culture, principle and practices seems very easy to implement, however it is a very complex process in real because many tools has to be integrated together to create a devops platform. Transitioning to DevOps not only requires open mindset to accept new culture but also needs highly technically skilled professionals.</p><p>The DevOps is not just combining development and operations team together. It is much broader than this, i.e. the culture talks about the whole product delivery process until production deployment has been attained and the end user uses it. Being said that, the DevOps team needs each and every person (I would like say person rather resources) responsible for the product development and delivery including the UX developer, the back end developer, the DB engineers, the QA (all types like functions/performance/security), the system administrators, the stake holders and also the customer.</p><p>During my past experience (System Support/Monitoring/Infrastructure Engineering/SaaS/Platform Engineering) I have worked with teams of system admins, developers and quality assurance engineers in various projects and I understand that many of them would like to transit to DevOps roles.</p><p>In this post, I will try to provide information and learning path especially for the system administrators, what properties or skills they need to make a successful career in DevOps.</p><p>Dear System Administrators,</p><p>We have landed in an era of doing things faster, smarter and innovatively. This is the high time to unlearn and start learning the latest tools and technology to make yourself technically fit, so that your survival chances are higher.</p><p>I am trying to share the absolute points and the way to get into DevOps step by step. The only thing you must keep in mind is “Now or Never”.</p><p>Many of the administrators are confused or scared of the number of tools that has to be learned when they think of DevOps. First and foremost the fear has to be guttered. To become a successful contributor in DevOps team a “T” shaped skillset should be acquired.</p><p style="text-align: justify;"></p>
+										</div>
+									</div><div class="row clearfix"><div class="column full" style="text-align: center;"><img src="/s/articles/64fb5b36e4b09eb17eda6f37/images/FhahJb1.jpg" alt="" data-filename="b1.jpg" style="width: 42.6744%; height: auto;"></div></div><div class="row clearfix"><div class="column full"><p style="text-align: justify;">I am sure if you are an experienced system administrator you must have expertise in Operating System Administration, Network Administration, Virtualization, Monitoring and some extent of the H/W Administration. These skills are your strong points to dive into the DevOps world. Before we proceed further I would like to explain how you can play a significant role in DevOps team. Take a look at the layers/categories of tools in DevOps.</p></div></div><div class="row clearfix"><div class="column full" style="text-align: center;"><img src="/s/articles/64fb5b36e4b09eb17eda6f37/images/UOwBxb2.jpg" alt="" data-filename="b2.jpg"></div></div><div class="row clearfix"><div class="column full" style="text-align: justify;"><p><strong>Step 1: Cloud Computing</strong></p><p></p><p style="text-align: justify;">If you understand the stack above in the diagram, I am sure you are already have the initial skills i.e. the Infrastructure skills. If you are not familiar with the Cloud then that is your first step to get started towards the DevOps journey. AWS being the top player in cloud providers, others like Microsoft Azure, Google Cloud, Oracle Cloud, IBM Cloud are the top notch competitors.</p><p><u>ec2-getting-started</u></p><p><u>Google Cloud Overview</u></p><p><u>Azure Introduction</u></p><p><strong>Step 2: Scripting</strong></p><p style="text-align: justify;">I came across many system administrators who are hesitant to learn scripting or do coding. I bet  you  have  to  bare  a  hefty  loss  unless  start  with  scripting.  At  least  knowledge  of  Bash scripting is mandatory for the stepping stone of DevOps. If you are good at Bash scripting Python would be the next best choice. Refer the <u>shellscrpit.sh</u> to get started with shell scripting. For Python check <u>Python for System Administrators</u></p><p><strong>Step 3: Infrastructure As Code</strong></p><p style="text-align: justify;">As the number of servers are in rise the way it is being managed has changed. Infrastructure As Code is the technique to automate deployments, provisioning and managing the dynamic and disposable infrastructure required for the release pipeline. There are two types of tools gets used in IaC</p><ul><li>Configuration orchestration tools</li><li>Configuration Management tools</li></ul>Configuration  orchestration  tools  which  are  very  popular  and  in  demand  are  HashiCorp’s<u>Terraform</u>, <u>AWS Cloudformation</u>.<p></p><p>Configuration Management tools are mostly used to maintain the state of the server post provision. Ansible being the trendy among all and having a quick learning curve takes the first place to be start with. Take glance <u>Ansible documentation.</u></p><p><strong>Step 4: Container &amp; Container Orchestration</strong></p><p>Virtualization was the game changer of IT Infrastructure in previous decades. The evolution of the container technology is the add on for to it. Docker is the leading container software widely used. With high usage of Docker, the orchestration tools like Docker Swarm, Kubenetes has been evolved and they are the must to learn items.</p><p>A easy start can be done here <u>Docker – get started</u>. Learn the <u>kubernetes-basics</u></p><p><strong>Step 6: Code Repository &amp; CI/CD</strong></p><p>Apart from all the above tools Code repositories/source control/version control tools  are also required to understand the entire DevOps release pipeline. Git is the widely used tool at the moment to commit and version control the code. Start with this quick guide “<u>Getting-Started-</u> <u>About-Version-Control</u>” to understand the process of adding, modifying, committing the code to a git repository.</p><p>CI/CD is the heart and soul of the release pipe line. All tools mentioned above has are to be integrated in this to make the DevOps successful. There are many Ci/CD tools out there like Jenkins, Bamboo, TeamCity, CircleCI etc. Among these Jenkins is one of the widely used as it is an open source. Get started with this <u>Jenkins handbook.</u></p><p><strong>Conclusion:</strong></p><p>I have just tried to provide the quick steps to understand the important tools used in devops culture.  I  hope  this  will  help  you  start  the  transitioning  from  system  administrator  to  a successful devops engineer. Keep Learning.</p></div></div>
+									<div class="row clearfix">
+										<div class="column full">
+											<div class="spacer height-20"></div>
+										</div>
+									</div>
+									<div class="row clearfix">
+										<div class="column sixth">
+											<p><img src="/s/articles/64fb5b36e4b09eb17eda6f37/images/RZ1fzpriyadarsan1.jpg" alt="" style="border-radius: 500px; margin-top: 5px; width: 99.0826%; height: auto;" data-filename="Priyadarsan 1.jpg"></p>
+										</div>
+										<div class="column two-sixth" autocomplete="off">
+											<p><b>{{AUTHOR}}</b><br></p>
+											<div class="is-social">
+												<a href="https://www.linkedin.com/in/darsan82/" title="LinkedIn" target="_blank"><i class="icon ion-social-linkedin"></i></a><a href="https://instagram.com/priyadarsan82?igshid=MzRlODBiNWFlZA==" title="Instagram" target="_blank"><i class="icon ion-social-instagram"></i></a>
+												
+												
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+<div id="1694194818018d" data-cat="205" class="is-section is-box is-bg-grey is-section-20">
+	<div class="is-boxes">
+		<div class="is-box-centered">
+			<div class="is-container container" style="max-width: 1100px;">
+				<div class="row clearfix" id="ratingHeading">
+					<div class="column full">
+						<h1 style="text-align: center; font-size: 28px; line-height: 1.1; font-weight: 900; letter-spacing: 0px; color: rgb(10, 9, 89); margin-bottom: 44px;">Reviews and Testimonials</h1>
+					</div>
+				</div>
+				<div class="row clearfix">
+					<div class="column full">
+						<div class="spacer height-20"></div>
+					</div>
+				</div>
+				<div class="is-overlay-content sp-content spCustomWidget" data-type="feedback-2" data-module="custom-widget" data-module-desc="Custom Widget" data-dialog-width="1200px" data-dialog-height="600px" data-html="WmBkr3u" data-settings="%5B%7B%20%22id%22%3A%20%22%22%7D%5D"><div id="yaoxF2B" style="text-align: center;">Course Feedback will be displayed here.</div></div>
+			</div>
+		</div>
+	</div>
+</div>
+
