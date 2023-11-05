@@ -1,0 +1,73 @@
+<div class="is-section is-box is-bg-grey is-section-75" data-cat="101" id="1698296682673">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container is-content-800">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<img src="/s/articles/6539f35de4b07f1917f2bee1/images/KBlqp1v8jwictqyqks1b1edsu3w.png" alt="" data-filename="1_V8JWIC-tqYQkS1b1edsu3w.png"><h1><b>Kubernetes: A Quick Guide to Its Architecture</b></h1>
+											<p><span style="font-size: 1.07rem;">{{DATE}}</span><br></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+<div class="is-section is-section-100 is-box type-teko-muktamahee" data-cat="118" id="1698296682674">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container" style="max-width: 960px;">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Overview</b></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false" style="text-align: center;">
+											<p style="text-align: left;">Kubernetes, often abbreviated as <b>K8s</b>, is an <b>open-source</b> <b>container orchestration</b> platform originally developed by <b>Google</b> and later donated to the <b>CNCF</b>.&nbsp; &nbsp; &nbsp; &nbsp;</p><p style="text-align: left;"><span style="font-size: 1.07rem;">The "8" in "</span><b style="font-size: 1.07rem;">K8s</b><span style="font-size: 1.07rem;">" represents the eight letters between the "K" and the "s" in "Kubernetes."</span></p><img src="/s/articles/6539f35de4b07f1917f2bee1/images/rKumGk8s.png" alt="" data-filename="k8s.png">
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>What Problem Does K8s Solve?</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p>Kubernetes (K8s) solves several problems related to deploying and managing containerized applications in modern software development:<br></p><p></p><ol><li><b>Container Orchestration:</b> It simplifies the orchestration of containers, allowing developers to efficiently manage and scale their applications.</li><li><b>Scaling:</b> K8s automates the scaling of applications to handle varying workloads, ensuring consistent performance.</li><li><b>High Availability:</b> It provides tools to maintain application availability by distributing containers across multiple servers and recovering from failures.</li><li><b>Resource Management:</b> K8s optimizes resource utilization, reducing waste and saving costs.</li><li><b>Service Discovery:</b> It streamlines the process of connecting and discovering services in complex, microservices-based applications.</li><li><b>Rolling Updates:</b> K8s enables seamless updates and rollbacks of applications, reducing downtime during maintenance.</li><li><b>Self-healing:</b> It automatically detects and replaces failing containers, improving application reliability.</li><li><b>Declarative Configuration:</b> K8s ensures that applications run as intended, reducing configuration errors and drift.</li><li><b>Multi-Cloud Support: </b>It allows for the consistent management of applications across different cloud providers and on-premises infrastructure.</li></ol><br><p></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Kubernetes Cluster Architecture</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false" style="text-align: left;">
+											<p style="text-align: left;">Kubernetes architecture is a&nbsp;<b>complex</b> but powerful system for managing containerized applications. By understanding its components and how they work together, you can harness the full potential of Kubernetes for deploying, managing, and scaling your applications.</p>&nbsp; &nbsp;<img src="/s/articles/6539f35de4b07f1917f2bee1/images/NjU3Zarc.png" alt="" data-filename="arc.png"><div style="text-align: left;"><p>Kubernetes runs your workload by placing containers into Pods to run on <b>Nodes</b><em>.&nbsp;</em></p><p>A node may be a virtual or physical machine, depending on the cluster.<br></p><p>In a Kubernetes (K8s) cluster, there are two types of nodes:&nbsp;</p><p style="text-align: center;"></p><ol><li><b>Control-plane nodes&nbsp;</b>(also known as&nbsp;<b>master nodes</b>&nbsp;)&nbsp;&nbsp;</li><li><b style="font-size: 1.07rem;">worker nodes</b> (also known as <b style="font-size: 1.07rem;">minion nodes</b>).&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="/s/articles/6539f35de4b07f1917f2bee1/images/uYsJb1.png" alt="" data-filename="1.png" style="font-size: 16px;"></li></ol><p></p><div style="text-align: left;"><p><b><span class="size-24">Control Plane Node (Master Nodes):&nbsp; </span>&nbsp; &nbsp;</b></p><p>The control plane of a Kubernetes cluster is responsible for managing and orchestrating the entire cluster.</p><p>They serve as the <b style="font-size: 1.07rem;">brain</b> of the operation and handle administrative tasks. The key components on the&nbsp;Control Plane Node include:</p><p></p><ol><li><b>API Server: </b>This is the <b>central control point </b>for all interactions with the Kubernetes cluster. It exposes the Kubernetes API and acts as the front end for the control plane, All communication, including creating, updating, or deleting resources, goes through the API server.</li><li><b>Etcd: </b>Etcd is a distributed <b>key-value store</b> that serves as the cluster's database. It stores all the configuration data, such as the desired state of the system. Etcd is crucial for maintaining the cluster's consistency and reliability.</li><li><b>Controller Manager:</b> The controller manager is responsible for regulating various aspects of the cluster. It continuously monitors the state of the cluster and takes corrective actions to ensure that the <b>actual state matches the desired state</b>.</li><li><b>Scheduler:</b> The scheduler is <b>incharge</b> of assigning workloads, which are defined as Pods, to worker nodes. It considers factors like resource requirements, constraints, and load distribution when making scheduling decisions.</li></ol><div><br></div><p><b class="size-24">Worker Nodes (Minion Nodes):</b></p><p>Worker nodes, or minion nodes, are where the actual application workloads run.</p><p>They execute containers and provide essential services for the applications.</p><p>Each worker&nbsp; node typically consists of the following components:<br></p><p></p><ol><li><b>Kubelet:</b> The kubelet is an<b> agent </b>running on each worker node. It is responsible for ensuring that containers are running within Pods. It communicates with the&nbsp;Control Plane node's API server to receive instructions and starts or stops containers accordingly.</li><li><b>Kube Proxy:</b> Kube Proxy is responsible for maintaining <b>network rules</b> on nodes. It manages network communication between Pods and services within the cluster, ensuring that traffic is correctly routed.</li><li><b>Container Runtime:</b> This component is responsible for <b>running containers</b>. Kubernetes supports multiple container runtimes, with Docker being one of the most commonly used options. Other runtimes like containerd, CRI-O, and others can also be used.</li></ol><p></p><p></p><p><b><br></b></p></div></div></div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>How&nbsp;Control Plane and Worker Nodes Collaborate</b><br></h2>
+										</div>
+									</div>
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<p><img src="/s/articles/6539f35de4b07f1917f2bee1/images/qIapm1.png" alt="" data-filename="1.png" style="font-size: 16px;"><br></p><p></p><p>The&nbsp;Control Plane Node and worker nodes work together to ensure the proper functioning of the Kubernetes cluster. Here's a simplified overview of their collaboration:</p><ol><li>A user or application sends a request to the Kubernetes cluster via the API server on a Control Plane Node.</li><li>The API server processes the request and stores the desired state of the cluster in etcd.</li><li>The controller manager continuously monitors the cluster state and takes actions to align the actual state with the desired state.</li><li>When a new Pod needs to be created, the scheduler on the&nbsp;Control Plane Node selects an appropriate worker node based on resource requirements and constraints.</li><li>The selected worker node's Kubelet receives instructions from the&nbsp;Control Plane Node to create the Pod and its associated containers.</li><li>The Kube Proxy on the worker node manages network traffic, ensuring that the Pod can communicate with other Pods and services within the cluster.</li><li>The container runtime on the worker node runs the containers inside the Pod.</li></ol><p><span style="font-size: 21.4px;">This collaboration ensures that applications are deployed, managed, and scaled effectively within a Kubernetes cluster, with the&nbsp;Control Plane Node handling control and orchestration while the worker nodes execute the actual workloads.<br></span></p><p></p>
+										</div>
+									</div>
+									<div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Conclusion</b><br></h2><p>As the demand for cloud-native technologies continues to rise, Kubernetes remains a fundamental solution for container orchestration.&nbsp;</p><p>We hope this guide has illuminated Kubernetes' architecture and its significance in modern software development.&nbsp;</p><p>If you have any questions or would like to explore specific topics further, please don't hesitate to ask. Thank you for joining us on this exploration of Kubernetes!<br></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full">
+											<div class="spacer height-20"></div>
+										</div>
+									</div>
+									<div class="row clearfix">
+										<div class="column sixth">
+											<p><img src="/s/articles/6539f35de4b07f1917f2bee1/images/QwncEsampath.jpg" alt="" style="border-radius: 500px; margin-top: 5px;" data-filename="sampath.jpg"></p>
+										</div>
+										<div class="column two-sixth" autocomplete="off" spellcheck="true">
+											<p style="height: 50px;"><b>{{AUTHOR}}</b><br><span style="font-size: 16px;"><b>AWS &amp; Terraform Certified&nbsp;</b></span><br></p><p style="height: 0px;"><a href="https://www.linkedin.com/in/sampathsivakumar-boddeti/" title="" target="_blank" style="background-color: rgb(255, 255, 255); font-size: 16px;"><img src="/s/articles/6539f35de4b07f1917f2bee1/images/Yh0Hhunnamed.png" alt="" data-filename="unnamed.png" style="width: 4%; border-color: initial; border-image: initial;"></a><br></p></div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
