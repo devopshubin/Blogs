@@ -1,0 +1,70 @@
+<div class="is-section is-box is-bg-grey is-section-75" data-cat="101" id="1698821038751">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container is-content-800">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<img src="/s/articles/6541f32ae4b0af2c91a2f36e/images/w8Z4zcoverpageremovebgpreview.png" alt="" data-filename="cover_page-removebg-preview.png"><h1><b>A Beginner's Guide to Dockerfile: Start Creating Containers with Docker</b></h1>
+											<p><span style="font-size: 1.07rem;">{{DATE}}</span><br></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+<div class="is-section is-section-100 is-box type-teko-muktamahee" data-cat="118" id="1698821038751">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container" style="max-width: 960px;">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Introduction</b><br></h2><p>Docker has revolutionized the way we develop, package, and deploy applications. With Docker, you can encapsulate your application, its dependencies, and its runtime environment into a lightweight portable container.<br></p><p> Dockerfiles play a crucial role in this process. In this blog, we'll explore what a Dockerfile is, how to write one and go through the available instructions to create Docker containers.<br></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Prerequisites</b><br></h2><p>Before diving into this comprehensive guide on Dockerfile, it's essential to ensure you have the following prerequisites:<br></p><ol><li><b>Basic Understanding of Docker:</b> This blog assumes that you have a foundational knowledge of what Docker is and its core concepts.</li><li><b>Docker Server:</b> To create and build Dockerfile for creating Docker containers.<br></li></ol><font class="size-21">If you're new to Docker, it's recommended to begin with my earlier blog posts:</font><br><ol style="font-weight: bold;"><li><a href="https://www.devopshub.online/blog/docker-and-its-architecture-a-deep-dive" target="_blank" title="">Docker and Its Architecture: A Deep Dive</a></li><li><a href="https://www.devopshub.online/blog/how-to-install-docker-on-ubuntu-22-04-lts-in-aws-cloud" target="_blank" title="">How to Install Docker on Ubuntu 22.04 LTS in AWS Cloud</a></li><li>Mastering Docker Commands: A Complete Hands-On Guide</li></ol><p></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>What is a Dockerfile?</b><br></h2>
+										</div>
+									</div>
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<p>A Dockerfile is a text file that contains a set of instructions for building a Docker container. These instructions are used to define the base image, configure the environment, copy files, and run commands within the container.&nbsp;</p><p>Dockerfiles are the blueprint for creating consistent, reproducible, and portable containers, making it easier to manage and scale applications.<br></p>
+										</div>
+									</div>
+									<div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b> Dockerfile Instructions</b><br></h2><p>Dockerfile instructions are the set of commands and directives used in a Dockerfile to define how a Docker container image should be built.&nbsp;</p><p>These instructions are used to specify the base image, set up the environment, copy files, install software, configure settings, expose ports, and define the startup commands for the container.&nbsp;</p><p>Dockerfile instructions are executed in order when building a Docker image, ensuring that the resulting container is configured as intended.<br></p><p><b>let's explore some of the most commonly used Docker instructions:</b><br></p><p></p><ol><li><b>FROM: </b>Specifies the base image for your container.</li><li><b>WORKDIR:</b> Sets the working directory for subsequent instructions.</li><li><b>COPY:</b> Copies files from the host into the container.</li><li><b>ADD: </b>Similar to COPY, but also allows for remote URLs and extraction of compressed files.</li><li><b>RUN:</b> Executes commands within the container during the image build process.</li><li><b>EXPOSE: </b>Informs Docker that the container will listen on the specified network ports.</li><li><b>ENV: </b>Sets environment variables for the container.</li><li><b>ARG:</b> Defines build-time arguments that can be overridden when building the image.</li><li><b>CMD:</b> Provides a default command to run when the container is started. <br>&nbsp; &nbsp; <b>&nbsp;Note:</b> Only one CMD instruction is allowed in a Dockerfile.</li><li><b>ENTRYPOINT: </b>Configures the container to be an executable, allowing you to pass arguments when running the container.</li></ol><p></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full">
+											<div class="spacer height-20"></div>
+										</div>
+									</div>
+									<div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>How to Write a Dockerfile</b><br></h2><p>Creating a Dockerfile is a straightforward process. Here are the basic steps to get you started:</p><p></p><ol><li><b>Choose a Base Image:</b>&nbsp;Start by specifying a base image that serves as the foundation for your container. You can use official images from the Docker Hub or create your own.</li><li><b>Set the Working Directory:</b> Define the working directory within the container. This is where you will execute commands and place your application code<br></li><li><b>Copy your application files:</b>&nbsp;Copy your application files from your host machine to the container using the <b>COPY</b> instruction<br></li><li><b>Install Dependencies:&nbsp;</b>Use <b>RUN </b>to install any necessary software or packages within the container.</li><li><b>Expose Ports:&nbsp;</b>If your application requires network access, use the <b>EXPOSE </b>instruction to specify which ports to expose.<br></li><li><b>Define Startup Command: </b>Finally, specify the command to run when the container starts. Use the <b>CMD</b> instruction.</li></ol><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Hands-on Demo</b></h2><p><b>Let us write a simple Dockerfile for a "Hello, World!" application using Python as an example.</b><br></p><p>1. Create a <b style="font-size: 1.07rem;">hello.py</b> file with the following content<br></p><pre>print("Hello, World!")<br></pre>2. <font class="size-21">Create a <b>Dockerfile</b> with the following Docker instructions&nbsp;</font><br><p></p><p></p><pre><div># Use an official Python runtime as the base image</div><div>FROM python:3.8-slim</div><div><br></div><div># Set the working directory in the container</div><div>WORKDIR /app</div><div><br></div><div># Copy a simple Python script that prints "Hello, World!" to the container</div><div>COPY hello.py .</div><div><br></div><div># Define the command to run the Python script</div><div>CMD ["python", "hello.py"]</div></pre><p></p><img src="/s/articles/6541f32ae4b0af2c91a2f36e/images/jXXN8dockerfile.jpg" alt="" data-filename="dockerfile.jpg"><p><b>Docker Command to&nbsp;Build a Docker Image from a Dockerfile</b></p><p></p><pre>docker build -t my-image .</pre><font class="size-21">The above command will create a Docker image named "my-image" using the Dockerfile in the current directory.</font><img src="/s/articles/6541f32ae4b0af2c91a2f36e/images/sswlxdockerbuild.jpg" alt="" data-filename="docker build.jpg" style="font-size: 16px;"><img src="/s/articles/6541f32ae4b0af2c91a2f36e/images/klnbxdockerimage.jpg" alt="" data-filename="docker image.jpg" style="font-size: 16px;"><p></p><p>After running the docker build command with the Dockerfile, you'll find that a Docker image named '<b>my-image</b>' has been created.<br></p><p><b>Now, let's run a Docker container using the 'my-image' Docker image</b></p><p></p><pre>docker run my-image</pre><img src="/s/articles/6541f32ae4b0af2c91a2f36e/images/Zwa2poutput.jpg" alt="" data-filename="output.jpg"><p></p><p>The demo is successfully completed, as evidenced by the Docker container producing the 'Hello, World!' output message on the terminal.</p></div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Conclusion</b><br></h2><p>In this blog, we have explored what a Dockerfile is, how to write one and go through the available instructions to create Docker containers along with a hands-on demo.<br></p><p>I hope you enjoyed reading this blog and found it informative. If you have any questions or topics you'd like us to cover in future blogs, please don't hesitate to connect with me on LinkedIn.&nbsp;</p><p>Thank you for joining us on this Docker journey.<br></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column sixth">
+											<p><img src="/s/articles/6541f32ae4b0af2c91a2f36e/images/biHp3sampath.jpg" alt="" style="border-radius: 500px; margin-top: 5px;" data-filename="sampath.jpg"></p>
+										</div>
+										<div class="column two-sixth" autocomplete="off" spellcheck="true">
+											<p style="height: 45px;"><b>{{AUTHOR}}</b><br>AWS &amp; Terraform Certified<span style="font-size: 1.07rem;">.</span></p><p><a href="https://www.linkedin.com/in/sampathsivakumar-boddeti/" title="" target="_blank"><img src="/s/articles/6541f32ae4b0af2c91a2f36e/images/PlX5blinkedin.png" alt="" data-filename="linkedin.png" style="font-size: 16px; width: 3.94366%; height: auto;"></a><br></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
