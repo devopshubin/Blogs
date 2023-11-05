@@ -1,0 +1,60 @@
+<div class="is-section is-box is-bg-grey is-section-20" data-cat="101" id="1699168485452">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container is-content-800">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<img src="/s/articles/654740cce4b06c1bcb43ed35/images/sDqbmunixandlinuxlogoremovebgpreview.png" alt="" data-filename="unix_and_linux_logo-removebg-preview.png"><h1><b>An Overview of UNIX and Linux Operating Systems</b></h1>
+											<p><span style="font-size: 1.07rem;">{{DATE}}</span><br></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+<div class="is-section is-section-100 is-box type-teko-muktamahee" data-cat="118" id="1699168485452">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container" style="max-width: 960px;">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Introduction</b><br></h2><p>The world of operating systems is vast and varied, but two names that have left an indelible mark on the computing landscape are UNIX and Linux.&nbsp;</p><p>These operating systems are renowned for their robustness, stability, and versatility, making them essential tools in the realm of software development, server management, and more.&nbsp;</p><p>In this blog, we will take a deep dive into the world of UNIX and Linux, exploring their history, architecture, key features, and their impact on the tech industry.<br></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>A Brief History</b></h2><p><span style="text-decoration-line: underline;"><b>UNIX</b></span>:&nbsp;</p><p>UNIX, born in the late 1960s at AT&amp;T's Bell Labs, is often regarded as the forefather of modern operating systems. It was developed as a multitasking and multi-user system, laying the foundation for many contemporary operating systems.&nbsp;</p><p><u><b>Unix-Based Operating Systems</b></u>:<br></p><p></p><ol><li>AIX (Advanced Interactive eXecutive)</li><li>HP-UX (Hewlett Packard-Unix)</li><li>Solaris (including Oracle Solaris and OpenSolaris)</li><li>Tru64 UNIX (formerly Digital UNIX)</li><li>IRIX</li><li>SCO UnixWare</li><li>BSD (Berkeley Software Distribution) variants (e.g., FreeBSD, OpenBSD, NetBSD)</li></ol><p></p><p><b><u>Linux</u>:&nbsp;</b></p><p>Linux, on the other hand, is a Unix-like operating system created by Linus Torvalds in 1991. It is open-source and freely available, which has contributed to its widespread adoption. The Linux kernel, combined with various user-space components, forms a complete operating system.<br></p><p></p><div class="flex-1 overflow-hidden"><div class="react-scroll-to-bottom--css-sicud-79elbk h-full"><div class="react-scroll-to-bottom--css-sicud-1n7m0yu"><div class="flex flex-col text-sm gizmo:pb-9 dark:bg-gray-800 gizmo:dark:bg-transparent"><div class="group w-full text-token-text-primary border-b border-black/10 gizmo:border-0 dark:border-gray-900/50 gizmo:dark:border-0 bg-gray-50 gizmo:bg-transparent dark:bg-[#444654] gizmo:dark:bg-transparent" data-testid="conversation-turn-11"><div class="p-4 gizmo:py-2 justify-center text-base md:gap-6 md:py-6 m-auto"><div class="flex flex-1 gap-4 text-base mx-auto md:gap-6 gizmo:gap-3 gizmo:md:px-5 gizmo:lg:px-1 gizmo:xl:px-5 md:max-w-2xl lg:max-w-[38rem] gizmo:md:max-w-3xl gizmo:lg:max-w-[40rem] gizmo:xl:max-w-[48rem] xl:max-w-3xl }"><div class="relative flex w-[calc(100%-50px)] flex-col gizmo:w-full lg:w-[calc(100%-115px)] agent-turn"><div class="flex-col gap-1 md:gap-3"><div class="flex flex-grow flex-col max-w-full gap-3 gizmo:gap-0"><div data-message-author-role="assistant" data-message-id="688cd418-e3eb-4e92-903d-69a69bd65ae4" class="min-h-[20px] flex flex-col items-start gap-3 whitespace-pre-wrap break-words overflow-x-auto"><div class="markdown prose w-full break-words dark:prose-invert light"><b><u class="size-21">Linux Distributions:</u></b><ol><li>Ubuntu</li><li>Debian</li><li>Fedora</li><li>CentOS</li><li>openSUSE</li><li>Arch Linux</li><li>Mint</li><li>Manjaro</li><li>Kali Linux</li></ol></div></div></div></div></div></div></div></div></div></div></div></div><p></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false" style="text-align: left;">
+											<h2><b>Architecture</b></h2><p><b><u>UNIX</u>:&nbsp;</b></p><p><span style="font-size: 1.07rem;">UNIX architecture is based on a client-server model. It is known for its simple yet powerful design, comprising the kernel, which manages hardware resources, and a collection of utility programs for various tasks. UNIX offers a hierarchical file system, enabling users to organize and access data efficiently.</span></p><p><span style="font-size: 1.07rem;"><b><u>Linux</u>:&nbsp;</b></span></p><p><span style="font-size: 1.07rem;">Linux shares architectural similarities with UNIX. The Linux kernel handles hardware interaction and provides the core services required for system operation. Like UNIX, Linux systems employ a hierarchical file system, adhering to the Filesystem Hierarchy Standard (FHS).</span></p><p><span style="font-size: 1.07rem;"><b><u>UNIX/Linux Architecture </u></b><br></span></p><p><span style="font-size: 1.07rem;">Unix and Linux share a similar architecture, with common elements such as hardware compatibility, a monolithic kernel, command-line shells like Bash, and support for a wide range of applications.&nbsp;</span></p><p><span style="font-size: 1.07rem;">While there may be differences in specific implementations, both exhibit adaptability, running on various hardware and supporting diverse applications while adhering to core principles like hierarchical file systems, multi-user multitasking, and a client-server model.<br></span></p>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; <img src="/s/articles/654740cce4b06c1bcb43ed35/images/lnHh2arch.png" alt="" data-filename="arch.png">
+										<p><b>The architecture of Unix and Linux is built around four main layers:</b></p><ol><li><b><u>Hardware Layer</u>:</b> This is the physical hardware, such as servers, desktops, or embedded devices, on which Unix and Linux can run. They are designed to be versatile and work on various hardware platforms.</li><li><b><u>Kernel Layer</u>:</b> The kernel is the core of the operating system, responsible for managing hardware resources and providing essential system services. Unix and Linux both use a monolithic kernel architecture, where core functions are integrated into a single kernel.</li><li><b><u>Shell Layer</u>:</b> This is the user interface for interacting with the system, typically through a command-line shell like Bash. It allows users to run commands and scripts.</li><li><b><u>Application Layer</u>:</b> Unix and Linux support a wide range of application software, from text editors to web servers. They can run a variety of applications, often adhering to POSIX standards for compatibility.</li></ol><p></p></div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Key Features</b><br></h2><img src="/s/articles/654740cce4b06c1bcb43ed35/images/9h0fXtable.jpg" alt="" data-filename="table.jpg">
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Conclusion</b><br></h2><p>Whether you're a software developer, system administrator, or simply a tech enthusiast, understanding these operating systems can open doors to a world of possibilities. Their enduring influence on the tech industry ensures that UNIX and Linux will remain significant for years to come.<br></p><p>I hope you enjoyed reading this blog and found it informative. If you have any questions or topics you'd like us to cover in future blogs, please don't hesitate to connect with me on LinkedIn. Thank you for joining us on this Linux journey.<br></p>
+										</div>
+									</div>
+									
+									<div class="row clearfix">
+										<div class="column full">
+											<div class="spacer height-20"></div>
+										</div>
+									</div>
+									<div class="row clearfix">
+										<div class="column sixth">
+											<p><img src="/s/articles/654740cce4b06c1bcb43ed35/images/Ovzkgsampath.jpg" alt="" style="border-radius: 500px; margin-top: 5px;" data-filename="sampath.jpg"></p>
+										</div>
+										<div class="column two-sixth" autocomplete="off" spellcheck="true">
+											<p style="height: 50px;"><b>{{AUTHOR}}</b><br>AWS &amp; Terraform Certified</p><a href="https://www.linkedin.com/in/sampathsivakumar-boddeti/" title="" target="_blank"><img src="/s/articles/654740cce4b06c1bcb43ed35/images/uuDRLlinkedin.png" alt="" data-filename="linkedin.png" style="width: 4%;"></a><a href="https://www.linkedin.com/in/sampathsivakumar-boddeti/" title="" target="_blank" draggable="false"></a><br><p></p>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
