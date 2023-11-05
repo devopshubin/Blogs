@@ -1,0 +1,106 @@
+<div class="is-section is-box is-bg-grey is-section-75" data-cat="101" id="1698483941575">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container is-content-800">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<img src="/s/articles/653ccec5e4b026b06db16ab8/images/TJJLvlogo2.png" alt="" data-filename="logo (2).png"><h1><b>AWS EKS Cluster: Setting up Your Cluster Like a Pro with eksctl</b></h1>
+											<p>{{DATE}}</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+<div class="is-section is-section-100 is-box type-teko-muktamahee" data-cat="118" id="1698483941575">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container" style="max-width: 960px;">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Introduction</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p>Kubernetes is the widely adopted solution for handling <b>cloud-based containers</b>, and <b>Amazon EKS</b> simplifies Kubernetes deployment on <b>AWS</b>.&nbsp;</p><p><b>Amazon Elastic Kubernetes Service</b> (EKS) is a <b>fully managed Kubernetes service</b> provided by AWS, making it easier to deploy, manage, and scale containerized applications using Kubernetes.<br></p><p><b>eksctl</b>&nbsp;is a <b>command-line tool</b> for creating and managing <b>EKS clusters</b>.<br></p><p>In this guide, we'll walk you through the process of setting up a Kubernetes EKS cluster on AWS using the eksctl tool, empowering you to fully leverage containerized applications.<br></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Prerequisites</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p>Before we begin, ensure you have the following prerequisites in place:<br></p><p></p><ol><li>To get started, all you need is an active <b>AWS account</b> with permissions to create and manage EKS clusters. Everything else will be covered in the blog itself.<br></li></ol><p></p>
+										</div>
+									</div><div class="row clearfix">
+										
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Step 1: Launch an EC2 Instance</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p>First, we'll launch an Amazon Elastic Compute Cloud (EC2) instance type of t2.micro.</p><p><span style="font-size: 1.07rem;">This instance will serve as the control center for creating and managing our EKS cluster.&nbsp;</span></p><img src="/s/articles/653ccec5e4b026b06db16ab8/images/qch8Q1.jpg" alt="" data-filename="1.jpg">
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Step 2: Install and Configure AWS CLI</b><br></h2>
+										</div>
+									</div>
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<p></p><div><b>To install the AWS CLI, follow these commands:</b></div><p></p><pre>curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
+unzip awscliv2.zip
+sudo ./aws/install</pre><p><img src="/s/articles/653ccec5e4b026b06db16ab8/images/bMSkd2.jpg" alt="" data-filename="2.jpg" style="background-color: rgb(255, 255, 255); font-size: 16px;"></p><p><b>Configure your AWS Access Key ID, AWS Secret Access Key, default region name, and default output format by using the "aws configure" command.</b><br></p><img src="/s/articles/653ccec5e4b026b06db16ab8/images/lUi8h3.jpg" alt="" data-filename="3.jpg"><div><p></p><div><b><u>Note</u>:</b>&nbsp;</div><div><ol><li>&nbsp;You can find/ create your access keys in the IAM service under the user section.&nbsp;</li><img src="/s/articles/653ccec5e4b026b06db16ab8/images/kf6xi4.jpg" alt="" data-filename="4.jpg"><li>Ensure that the user has administrative access/ Required access to setup EKS Cluster when configuring their Access keys.</li></ol></div><p></p><p></p>
+										</div></div>
+									</div>
+									<div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Step 3:&nbsp;Installing&nbsp;kubectl</b><br></h2>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full">
+											<div class="spacer height-20"></div>
+										</div>
+									</div>
+									<div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p><span style="font-size: 21.4px;">Kubectl is a command line tool that you use to communicate with the Kubernetes API server.&nbsp;</span></p><p>Download the <code class="code" style="font-size: 21.4px;">kubectl</code> binary for your cluster's <b>Kubernetes version-1.28</b> from Amazon S3</p><p><span style="font-size: 21.4px;"><code class="code"></code></span></p><pre><div>curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.28.2/2023-10-17/bin/linux/amd64/kubectl</div></pre><p></p><p>(Optional) Verify the downloaded binary with the SHA-256 checksum for your binary.<code><br></code></p><p><span style="font-size: 21.4px;"></span></p><div><pre><div>curl -O https://s3.us-west-2.amazonaws.com/amazon-eks/1.28.2/2023-10-17/bin/linux/amd64/kubectl.sha256</div></pre><span class="size-21">Check the SHA-256 checksum for your downloaded binary with one of the following commands.</span><br></div><div><pre><div>sha256sum -c kubectl.sha256
+<div>openssl sha1 -sha256 kubectl</div></div></pre></div><div><span class="size-21">Apply execute permissions to the binary.</span><br></div><p></p><pre>chmod +x ./kubectl<span class="size-21"><br></span></pre><span class="size-21">Copy the binary to a folder in your PATH. If you have already installed a version of kubectl, then we recommend creating a $HOME/bin/kubectl and ensuring that $HOME/bin comes first in your $PATH.<br></span><p></p><p><span class="size-21"></span></p><pre><div><span class="size-21">mkdir -p $HOME/bin &amp;&amp; cp ./kubectl $HOME/bin/kubectl &amp;&amp; export PATH=$HOME/bin:$PATH</span></div></pre><span class="size-21">After you install kubectl, you can verify its version.<br></span><p></p><p></p><pre>kubectl version --client<span class="size-21"><br></span></pre><img src="/s/articles/653ccec5e4b026b06db16ab8/images/Neocz5.jpg" alt="" data-filename="5.jpg"><br><p></p><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Step 3:&nbsp;Installing eksctl</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p><span>To download the latest release, run:<br></span></p><p><span></span></p><pre><div># for ARM systems, set ARCH to: `arm64`, `armv6` or `armv7`</div><div>ARCH=amd64</div><div>PLATFORM=$(uname -s)_$ARCH</div><div><br></div><div>curl -sLO "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_$PLATFORM.tar.gz"</div><div><br></div><div># (Optional) Verify checksum</div><div>curl -sL "https://github.com/eksctl-io/eksctl/releases/latest/download/eksctl_checksums.txt" | grep $PLATFORM | sha256sum --check</div><div><br></div><div>tar -xzf eksctl_$PLATFORM.tar.gz -C /tmp &amp;&amp; rm eksctl_$PLATFORM.tar.gz</div><div><br></div><div>sudo mv /tmp/eksctl /usr/local/bin</div></pre>Determine whether&nbsp;<code class="code">eksctl</code> installed on your device or not<br><p></p><p><span></span></p><pre>eksctl version<br></pre><img src="/s/articles/653ccec5e4b026b06db16ab8/images/4V5N16.jpg" alt="" data-filename="6.jpg"><br><p></p><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Step 4:&nbsp;Run the eksctl commands to create/delete/modify the EKS Cluster</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p><b>Command to Create EKS Cluster using eksctl command</b><br></p><p></p><pre>eksctl create cluster --name &lt;name-of-cluster&gt; --nodegroup-name &lt;nodegrpname&gt; --node-type &lt;instance-type&gt; --nodes &lt;no-of-nodes&gt;  
+
+eksctl create cluster --name mycluster --nodegroup-name ng-test --node-type t2.medium --nodes 2</pre><p></p><img src="/s/articles/653ccec5e4b026b06db16ab8/images/Pp7UO8.jpg" alt="" data-filename="8.jpg"><div><img src="/s/articles/653ccec5e4b026b06db16ab8/images/mPBpi9.jpg" alt="" data-filename="9.jpg"><div><p>the above command will create an EKS cluster named "<b>mycluster</b>" with a node group named "<b>ng-test</b>." The node group will consist of two nodes, each using the "<b>t2.medium</b>" instance type.</p><p>it will take around 15-20 mins to setup the cluster.&nbsp;<img src="/s/articles/653ccec5e4b026b06db16ab8/images/EkhdL10.jpg" alt="" data-filename="10.jpg" style="font-size: 16px;"></p><p>In background eksctl will trigger AWS Cloudformation to create the EKS Cluster.&nbsp;</p><img src="/s/articles/653ccec5e4b026b06db16ab8/images/R8eOr11.jpg" alt="" data-filename="11.jpg"><img src="/s/articles/653ccec5e4b026b06db16ab8/images/ti1YK12.jpg" alt="" data-filename="12.jpg"><p></p><h3 id="user-content-clean-up-cluster" dir="auto"><b style="font-size: 1.07rem;">Test the EKS Cluster</b><img src="/s/articles/653ccec5e4b026b06db16ab8/images/kqgEB13.jpg" alt="" style="font-size: 16px;" data-filename="13.jpg"></h3><h3 id="user-content-clean-up-cluster" dir="auto"><b style="font-size: 1.07rem;">Command to Delete EKS Cluster using eksctl command</b><br></h3></div><p></p><pre>eksctl delete cluster --name &lt;name-of-cluster&gt;  
+eksctl delete cluster --name mycluster</pre><img src="/s/articles/653ccec5e4b026b06db16ab8/images/Fq7ka14.jpg" alt="" data-filename="14.jpg"><br></div></div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Conclusion</b><br></h2><p>I hope you enjoyed reading this blog and found it informative. If you have any questions or topics you'd like us to cover in future blogs, please don't hesitate to connect with me on LinkedIn. Thank you for joining us on this Kubernetes journey<br></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column sixth">
+											<p><img src="/s/articles/653ccec5e4b026b06db16ab8/images/5Z0dSsampath.jpg" alt="" style="border-radius: 500px; margin-top: 5px;" data-filename="sampath.jpg"></p>
+										</div>
+										<div class="column two-sixth" autocomplete="off" spellcheck="true">
+											<p style="height: 45px;"><b>{{AUTHOR}}</b><br>AWS &amp; Terraform Certified<a href="https://www.linkedin.com/in/sampathsivakumar-boddeti/" title="" target="_blank"></a></p><p><a href="https://www.linkedin.com/in/sampathsivakumar-boddeti/" title="" target="_blank"><img src="/s/articles/653ccec5e4b026b06db16ab8/images/4DWQVlinkedin.png" alt="" data-filename="linkedin.png" style="font-size: 16px; width: 4.3662%; height: auto;"></a><br></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
