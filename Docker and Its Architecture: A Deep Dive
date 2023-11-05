@@ -1,0 +1,86 @@
+<div class="is-section is-box is-bg-grey is-section-75" data-cat="101" id="1698571078837">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container is-content-800">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false"><img src="/s/articles/653e232ce4b00d27638ad77a/images/xqDkswhatisdockerremovebgpreview.png" alt="" data-filename="what-is-docker-removebg-preview.png"><h1><b>Docker and Its Architecture: A Deep Dive</b></h1>
+											<p><span style="font-size: 1.07rem;">{{DATE}}</span><br></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+<div class="is-section is-section-100 is-box type-teko-muktamahee" data-cat="118" id="1698571078838">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container" style="max-width: 960px;">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Introduction</b></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p>In the world of software development and deployment, <b>containerization</b> has emerged as a transformative technology. <b>Docker</b>, a leading containerization platform, has played a pivotal role in this revolution.&nbsp;</p><p>In this blog, we will explore Docker and its architecture, providing an in-depth understanding of how Docker works and why it has become such a fundamental tool in modern software development.<br></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>What is Docker?</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p>Docker is an <b>open-source</b> platform that automates the deployment of applications within lightweight, portable, and self-sufficient <b>containers</b>.&nbsp;</p><p>These containers are isolated environments that contain an application and its dependencies, making it possible to run software consistently across different environments, from development to production.<br></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Key Docker Concepts</b></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p>Before we drive into Docker's architecture, let's familiarize ourselves with some of its key concepts:<br></p><p></p><ol><li><b><u>Container</u>:</b> A container is a standalone executable package that includes everything needed to run a piece of software, including the code, runtime, system tools, libraries, and settings.</li><li><b><u>Image</u>:</b> An image is a lightweight, read-only, and executable package that contains a piece of software and its dependencies. Docker containers are created from images.</li><li><b><u>Dockerfile</u>:</b> A Dockerfile is a text document that contains a set of instructions for building a Docker image. It specifies what is included in the image, such as the base image, software packages, and configuration.</li><li><b><u>Registry</u>:</b> Docker images are stored in registries, which are like repositories for container images. The Docker Hub is a popular public registry, but organizations often use private registries for their images.</li><li><b><u>Containerization</u>:</b> The process of packaging an application and its dependencies into a container is known as containerization. Containers can run on any platform with Docker installed.</li></ol><p></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Docker Architecture</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p><img src="/s/articles/653e232ce4b00d27638ad77a/images/OeBQFdocker.drawio.png" alt="" data-filename="Docker.drawio.png" style="font-size: 16px;"><br></p></div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p>Docker follows a client-server architecture. The key components of the Docker architecture include:</p><p></p><ol><li><b><u>Docker Client</u>:</b> The Docker client is the primary interface through which users interact with Docker. Users can issue commands to the client, which communicates with the Docker server to carry out tasks such as building images, creating containers, and managing Docker resources.</li><li><span style="font-size: 1.07rem;"><b><u>Docker Server (Docker Daemon)</u>: </b>The Docker server, often referred to as the Docker daemon, is responsible for managing Docker objects like containers, images, volumes, and networks. It listens for Docker API requests from the Docker client and performs the requested actions.</span><br></li><li><span style="font-size: 1.07rem;"><b><u>Docker Images</u>:</b> Docker images are the building blocks of containers. They are read-only templates that contain the application code, libraries, and dependencies required to run a specific application. Images are typically created from a Dockerfile and can be stored in a Docker registry.<br></span></li><li><span style="font-size: 1.07rem;"><b><u>Docker Container</u>:</b> A Docker container is a running instance of a Docker image. Containers are isolated and share the kernel of the host operating system but have their file system and processes. This isolation allows multiple containers to run on the same host without interfering with one another.<br></span></li><li><span style="font-size: 1.07rem;"><b><u>Docker Registry</u>:</b> Docker registries are repositories for Docker images. The Docker Hub is a public registry where you can find a vast collection of Docker images. Organizations often set up private registries to store and distribute their custom images securely.<br></span></li><li><b><u>Docker Volumes</u>:</b> Docker volumes are used to manage data persistence in containers. They are separate from the container's file system and allow data to be shared between containers and persisted even when a container is stopped or removed.<br></li><li><b><u>Docker Networking</u>:</b> Docker provides various networking options, allowing containers to communicate with each other and the outside world. Docker creates bridges, overlay networks, and host networks to facilitate network connections between containers and the host system.</li></ol><p></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>How Docker Works</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p>Here's a brief overview of how Docker works:</p><ol><li>A user creates a Docker image by defining the application and its dependencies in a Dockerfile.</li><li>The Docker image is built using the Docker client, which communicates with the Docker server (Docker daemon) to create the image.</li><li>Once an image is created, it can be shared and distributed via a Docker registry.</li><li>Users can create containers from Docker images, specifying runtime settings and options.</li><li>The Docker daemon manages these containers, ensuring they are isolated and resource-efficient.</li><li>Containers can be linked and networked to communicate with each other, and data can be stored in Docker volumes.</li></ol><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Conclusion</b><br></h2>
+										</div>
+									</div>
+									
+									
+									<div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p> Understanding the core components of Docker and its architecture is essential for effectively utilizing this powerful tool in modern software development workflows. <br></p><p>I hope you enjoyed reading this blog and found it informative. If you have any questions or topics you'd like us to cover in future blogs, please don't hesitate to connect with me on LinkedIn.&nbsp;</p><p>Thank you for joining us on this Docker journey<br></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column sixth">
+											<p><img src="/s/articles/653e232ce4b00d27638ad77a/images/Mbla7sampath.jpg" alt="" style="border-radius: 500px; margin-top: 5px;" data-filename="sampath.jpg"></p>
+										</div>
+										<div class="column two-sixth" autocomplete="off" spellcheck="true">
+											<p style="height: 45px;"><b>{{AUTHOR}}</b><br>AWS &amp; Terraform Certified</p><a href="https://www.linkedin.com/in/sampathsivakumar-boddeti/" title="" target="_blank"><img src="/s/articles/653e232ce4b00d27638ad77a/images/OZ8kElinkedin.png" alt="" data-filename="linkedin.png" style="width: 3.66197%; height: auto;"></a>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
