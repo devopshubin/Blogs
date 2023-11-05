@@ -1,0 +1,119 @@
+<div class="is-section is-box is-bg-grey is-section-75" data-cat="101" id="1698620877801">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container is-content-800">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<img src="/s/articles/653ee23ee4b003876332217d/images/OO1qdlogoremovebgpreview.png" alt="" data-filename="logo-removebg-preview.png"><h1><b>How to Install Docker on Ubuntu 22.04 LTS in AWS Cloud</b></h1>
+											<p><span style="font-size: 1.07rem;">{{DATE}}</span><br></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+<div class="is-section is-section-100 is-box type-teko-muktamahee" data-cat="118" id="1698620877801">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container" style="max-width: 960px;">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Overview</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p>Docker Engine is an <b>open-source</b> containerization technology for building and containerizing your applications.&nbsp;</p><p>Docker Engine acts as a <b>client-server application</b> with:&nbsp;</p><p></p><ol><li>&nbsp;A server with a long-running <b>daemon</b> process <b>dockerd</b>.&nbsp;</li><li><span style="font-size: 1.07rem;"><b>APIs </b>which specify interfaces that programs can use to talk to and instruct the Docker daemon.&nbsp;</span><br></li><li><span style="font-size: 1.07rem;">A command line interface (CLI) <b>client docker</b>.&nbsp;</span><br></li></ol><p></p><p>The CLI uses Docker APIs to control or interact with the Docker daemon through scripting or direct CLI commands. Many other Docker applications use the underlying API and CLI. The daemon creates and manages Docker objects, such as images, containers, networks, and volumes.<br></p><p>In this guide, we will walk you through the steps to install Docker on an Ubuntu 22.04 LTS-based AWS EC2 instance, enabling you to harness the benefits of containerization in the cloud.<br></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Supported platforms</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p>Docker Engine is available on a variety of <b>Linux</b> distros,<b> macOS</b>, and <b>Windows 10 </b>through Docker Desktop, and as a static binary installation.<br></p><img src="/s/articles/653ee23ee4b003876332217d/images/HDBjTplatforms.png" alt="" data-filename="platforms.png">
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Installation methods</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p>You can install Docker Engine in different ways, depending on your needs:<br></p><p></p><ol><li>Install using Docker Desktop for Linux</li><li>Set up and install Docker Engine from Docker's apt repository.<br></li><li>Install it manually and manage upgrades manually.<br></li><li>Use a convenience script.</li></ol>In this Blog, we will s<span style="background-color: rgba(200, 200, 201, 0.11); font-size: 1.07rem;">et up and install Docker Engine using Docker's apt repository.</span><p></p><p></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Prerequisites</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p>Before you begin, make sure you have the following prerequisites in place:</p><ol><li>An AWS account with an EC2 instance running Ubuntu 22.04 LTS.</li><li>SSH access to your AWS EC2 instance.</li><li>Basic knowledge of the Linux command line.</li></ol><p><img src="/s/articles/653ee23ee4b003876332217d/images/kg6Vt1.jpg" alt="" data-filename="1.jpg" style="font-size: 16px;"><br></p><p></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Step 1: Connect to Your AWS EC2 Instance</b><br></h2>
+										</div>
+									</div>
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<p>Use SSH to connect to your AWS EC2 instance</p><p><img src="/s/articles/653ee23ee4b003876332217d/images/3ipSh2.jpg" alt="" data-filename="2.jpg" style="font-size: 16px;"><br></p></div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Step 2: Update the System</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p></p><pre>sudo apt update -y</pre><p></p>
+										</div>
+									</div>
+									<div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Step 3:&nbsp;Set up Docker's apt repository.</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p></p><pre><div># Add Docker's official GPG key:</div><div>sudo apt-get update</div><div>sudo apt-get install ca-certificates curl gnupg</div><div>sudo install -m 0755 -d /etc/apt/keyrings</div><div>curl -fsSL https://download.docker.com/linux/ubuntu/gpg | sudo gpg --dearmor -o /etc/apt/keyrings/docker.gpg</div><div>sudo chmod a+r /etc/apt/keyrings/docker.gpg</div><div><br></div><div><div># Add the repository to Apt sources:</div><div>echo \</div><div>  "deb [arch="$(dpkg --print-architecture)" signed-by=/etc/apt/keyrings/docker.gpg] https://download.docker.com/linux/ubuntu \</div><div>  "$(. /etc/os-release &amp;&amp; echo "$VERSION_CODENAME")" stable" | \</div><div>  sudo tee /etc/apt/sources.list.d/docker.list &gt; /dev/null</div><div>sudo apt-get update</div></div></pre><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Step 4:&nbsp;Install the Docker packages.</b><br></h2><p>To install the latest version, run:</p><p></p><pre><div>sudo apt-get install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin</div></pre>Running this command will install Docker and its associated components on your system, allowing you to work with Docker containers, build custom images, and manage multi-container applications using Docker Compose.<br><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Step 5:&nbsp;Verifying Docker Installation</b><br></h2><p>Verify that the Docker Engine installation is successful by running the hello-world image.<br></p><p></p><pre>sudo docker run hello-world<br></pre><img src="/s/articles/653ee23ee4b003876332217d/images/ykgzu3.jpg" alt="" data-filename="3.jpg"><p></p>
+										<p><b>Congratulations,&nbsp;</b>You have now successfully installed and started Docker Engine.</p><p><b>Note: </b>If you try the above docker command without sudo, you will get an error <span style="color: rgb(205, 42, 42);"><b>permission denied.</b></span></p><p></p><pre>docker run hello-world<img src="/s/articles/653ee23ee4b003876332217d/images/Aa5Ux4.jpg" alt="" data-filename="4.jpg" style="background-color: rgb(255, 255, 255); font-size: 16px;"></pre><p>We get this error because&nbsp;Docker requires administrative privileges to run, and the Ubuntu user does not have the necessary permissions.&nbsp;</p><p>You can resolve it by using sudo before Docker commands or adding the Ubuntu user to the docker group and applying the group membership changes.</p></div>
+									</div><div class="row clearfix" draggable="false">
+										
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Step 6:&nbsp;Manage Docker as a non-root user</b><br></h2><p>The Docker daemon binds to a Unix socket, not a TCP port. By default, it's the root user that owns the Unix socket, and other users can only access it using sudo. The Docker daemon always runs as the root user.<br></p><p>If you don't want to preface the docker command with sudo, create a Unix group called docker and add users to it. When the Docker daemon starts, it creates a Unix socket accessible by members of the docker group. On some Linux distributions, the system automatically creates this group when installing Docker Engine using a package manager. In that case, there is no need for you to manually create the group.<br></p><p>In our case, the docker group is already created during the installation of the Docker Engine. You can check by executing the following command.</p><p></p><pre>cat /etc/group | grep docker<br></pre><p></p><img src="/s/articles/653ee23ee4b003876332217d/images/nSWCg5.jpg" alt="" data-filename="5.jpg">
+										<p><b>Add non-root user to the docker group</b><br></p><p></p><pre>sudo usermod -aG docker $USER<b><br></b></pre><font class="size-21">when you run this command, it adds your current user to the "docker" group, allowing you to run Docker commands without having to use sudo each time.</font><br><p></p><p>Log out and log back in so that your group membership is re-evaluated or&nbsp;<br></p><p><b>Run the following command to activate the changes to groups</b><br></p><p></p><pre>newgrp docker</pre><b class="size-21">Verify that you can run docker commands without sudo</b><br><p></p><p><code></code></p><pre>docker run hello-world</pre><p></p><img src="/s/articles/653ee23ee4b003876332217d/images/E8Dxp6.jpg" alt="" data-filename="6.jpg"></div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Step 7:&nbsp;Configure Docker to start on boot with systemd</b><br></h2><p>To start the Docker and Containerd services automatically when your system boots up&nbsp;run the following commands</p><p></p><pre><div>sudo systemctl enable docker.service</div><div>sudo systemctl enable containerd.service</div></pre><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Conclusion</b><br></h2><p>In this tutorial, we've covered the steps to install Docker on an Ubuntu 22.04 LTS-based AWS EC2 instance successfully&nbsp;<br></p><p>I hope you enjoyed reading this blog and found it informative. If you have any questions or topics you'd like us to cover in future blogs, please don't hesitate to connect with me on LinkedIn. Thank you for joining us on this Docker journey,<br></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full">
+											<div class="spacer height-20"></div>
+										</div>
+									</div>
+									<div class="row clearfix">
+										<div class="column sixth">
+											<p><img src="/s/articles/653ee23ee4b003876332217d/images/UmQDjsampath.jpg" alt="" style="border-radius: 500px; margin-top: 5px;" data-filename="sampath.jpg"></p>
+										</div>
+										<div class="column two-sixth" autocomplete="off" spellcheck="true">
+											<p style="height: 45px;"><b>{{AUTHOR}}</b><br>AWS &amp; Terraform Certified</p><a href="https://www.linkedin.com/in/sampathsivakumar-boddeti/" title="" target="_blank"><img src="/s/articles/653ee23ee4b003876332217d/images/FqOoulinkedin.png" alt="" data-filename="linkedin.png" style="width: 4.50704%; height: auto;"></a>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
