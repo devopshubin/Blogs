@@ -1,0 +1,103 @@
+<div class="is-section is-box is-bg-grey is-section-75" data-cat="101" id="1698991787575">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container is-content-800">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<img src="/s/articles/65444c02e4b067547488d397/images/j85Ahfilesystemphotoroom.pngphotoroom.png" alt="" data-filename="file system-PhotoRoom.png-PhotoRoom.png"><h1><b>Exploring the Linux File System: A Detailed Overview</b></h1>
+											<p><span style="font-size: 1.07rem;">{{DATE}}</span><br></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+<div class="is-section is-section-100 is-box type-teko-muktamahee" data-cat="118" id="1698991787576">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container" style="max-width: 960px;">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Introduction</b><br></h2><p>Linux, the open-source operating system known for its robustness and flexibility, relies on a well-structured file system that forms the foundation of its organization and functionality. In this blog, we'll take an in-depth look at the Linux file system, explaining each directory and its purpose.<br></p><p>Let's delve into the key directories within the Linux file system.</p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>1. / (Root Directory)</b></h2><p>The root directory, marked by '/', is the top of the Linux file system hierarchy. It contains essential system files and directories, including the kernel, bootloader configuration, and key configuration files. The root directory is also where other mount points are attached, extending the file system.<br></p><img src="/s/articles/65444c02e4b067547488d397/images/U6CJD1.jpg" alt="" data-filename="1.jpg">
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>2. /bin (Binary)</b><br></h2><p>The /bin directory stores essential binary executables needed to repair, recover, or boot the system. These binaries are critical for system maintenance and recovery, even when the system's other file systems are not mounted.<br></p><img src="/s/articles/65444c02e4b067547488d397/images/xU6mDbin.jpg" alt="" data-filename="bin.jpg">
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>3. /boot</b><br></h2><p>/boot houses boot-related files, such as the kernel, bootloader configuration, and the initial RAM disk (initrd). These files are required during the system's boot process.<img src="/s/articles/65444c02e4b067547488d397/images/1Cgfyboot.jpg" alt="" data-filename="boot.jpg" style="font-size: 16px;"></p></div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>4. /dev (Device)</b><br></h2><p>The /dev directory contains device files that serve as interfaces to hardware devices. In Linux, everything is considered a file, and these device files allow interaction with physical and virtual devices, such as disks, terminals, and more.<img src="/s/articles/65444c02e4b067547488d397/images/xtQUwdev.jpg" alt="" data-filename="dev.jpg" style="font-size: 16px;"></p></div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>5. /etc </b><br></h2><p>/etc stores system-wide configuration files and scripts that are essential for system administration. It includes configuration files for various services, network settings, and system-wide software.<img src="/s/articles/65444c02e4b067547488d397/images/VQ4Msetc.jpg" alt="" data-filename="etc.jpg" style="font-size: 16px;"></p></div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>6. /home </b><br></h2><p>User home directories are located in the /home directory. Each user typically has a subdirectory here, where they can store their personal files and configurations. The /home directory is where user-specific settings are stored.</p><p><img src="/s/articles/65444c02e4b067547488d397/images/oSA5Ihome.jpg" alt="" data-filename="home.jpg" style="font-size: 16px;"></p></div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>7. /lib</b><br></h2><p>The /lib directory contains essential libraries required by the system and various programs during both boot and runtime. These libraries are shared by multiple programs to optimize disk space and simplify maintenance.<img src="/s/articles/65444c02e4b067547488d397/images/Y8iv8lib.jpg" alt="" data-filename="lib.jpg" style="font-size: 16px;"></p></div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>8. /media (Removable Media)</b><br></h2><p>The /media directory is used to automatically mount removable media, such as USB drives and external hard disks. It is a convenient location for users to access and interact with these devices.</p></div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>9. /mnt (Mount)</b><br></h2><p>/mnt is a directory where system administrators can manually mount temporary file systems or storage devices. It's often used for network shares and other temporary mounts.<br></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>10. /opt (Optional)</b><br></h2><p>The /opt directory is typically used to store additional software packages that are not part of the standard distribution but are still considered optional or add-on software.<img src="/s/articles/65444c02e4b067547488d397/images/vCDbOopt.jpg" alt="" data-filename="opt.jpg" style="font-size: 16px;"></p></div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>11. /proc (Process)</b><br></h2><p>The /proc directory is a virtual file system that provides information about currently running processes and kernel parameters. It's a dynamic directory that doesn't contain files on disk but generates information on the fly.</p><p><img src="/s/articles/65444c02e4b067547488d397/images/QK55sproc.jpg" alt="" data-filename="proc.jpg" style="font-size: 16px;"></p></div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>12. /root </b><br></h2><p>The /root directory is the home directory of the root user, also known as the superuser or administrator. It contains the root user's personal files and configuration settings.<img src="/s/articles/65444c02e4b067547488d397/images/iRifYroot.jpg" alt="" data-filename="root.jpg" style="font-size: 16px;"></p></div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>13. /sbin (System Binary)</b><br></h2><p>/sbin holds critical system binaries needed for system maintenance, recovery, and repair. These binaries are usually required by the root user to perform administrative tasks.<img src="/s/articles/65444c02e4b067547488d397/images/KgIUwsbin.jpg" alt="" data-filename="sbin.jpg" style="font-size: 16px;"></p></div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>14. /srv (Service)</b><br></h2><p>The /srv directory is used to store data for services provided by the system, such as websites or FTP servers. It helps keep service-related data organized and separate from user data.</p></div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>15. /tmp (Temporary)</b><br></h2><p>The /tmp directory is a temporary storage location for files that do not need to be preserved across system reboots. It is accessible to all users and is often used to store transient data.<img src="/s/articles/65444c02e4b067547488d397/images/gTl4btmp.jpg" alt="" data-filename="tmp.jpg" style="font-size: 16px;"></p></div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>16. /usr (User System Resources)</b><br></h2><p>The /usr directory contains user-related system resources, such as user binaries, libraries, documentation, and more. It is a significant part of the Linux file system and is usually mounted as a separate file system.<br></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>17. /var (Variable)</b><br></h2><p>/var is where variable data, such as log files, spool files, and temporary files generated by system processes, is stored. It can vary in size and is often a separate file system to prevent it from filling up the root file system.<img src="/s/articles/65444c02e4b067547488d397/images/7M6r2var.jpg" alt="" data-filename="var.jpg" style="font-size: 16px;"></p></div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Conclusion</b><br></h2><p><span>In this blog, we've explored the Linux file system which is crucial for effective system administration and day-to-day usage. The clear organization of directories and their specific purposes ensures that files and configurations are in the right place, making the system efficient and manageable.</span></p><p><span>I hope you enjoyed reading this blog and found it informative. If you have any questions or topics you'd like us to cover in future blogs, please don't hesitate to connect with me on LinkedIn.&nbsp;</span></p><p><span>Thank you for joining us on this Linux journey.<br></span></p>
+										</div>
+									</div>
+									<div class="row clearfix" draggable="false">
+										<div class="column sixth">
+											<p><img src="/s/articles/65444c02e4b067547488d397/images/V6elYsampath.jpg" alt="" style="border-radius: 500px; margin-top: 5px;" data-filename="sampath.jpg" draggable="false"></p>
+										</div>
+										<div class="column two-sixth" autocomplete="off" spellcheck="true">
+											<p style="height: 45px;"><b>{{AUTHOR}}</b><br>AWS &amp; Terraform Certified</p><a href="https://www.linkedin.com/in/sampathsivakumar-boddeti/" title="" target="_blank" draggable="false"><img src="/s/articles/65444c02e4b067547488d397/images/1GQBglinkedin.png" alt="" data-filename="linkedin.png" style="width: 3.66197%; height: auto;" draggable="false"></a>
+											
+										</div>
+									</div><div class="row clearfix">
+										<div spellcheck="false">
+											<p><br></p>
+										</div>
+									</div>
+									
+									
+								</div>
+							</div>
+						</div>
+					</div>
+
