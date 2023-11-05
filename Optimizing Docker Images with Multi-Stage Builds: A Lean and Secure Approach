@@ -1,0 +1,78 @@
+<div class="is-section is-box is-bg-grey is-section-75" data-cat="101" id="1698837733534">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container is-content-800">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<img src="/s/articles/65423075e4b03dcd4cbb50fb/images/BpEFxuntitleddiagram.drawioremovebgpreview1.png" alt="" data-filename="Untitled_Diagram.drawio-removebg-preview (1).png"><h1><b>Optimizing Docker Images with Multi-Stage Builds: A Lean and Secure Approach</b></h1>
+											<p><span style="font-size: 1.07rem;">{{DATE}}</span><br></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+<div class="is-section is-section-100 is-box type-teko-muktamahee" data-cat="118" id="1698837733534">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container" style="max-width: 960px;">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Introduction</b><br></h2>
+										</div>
+									</div>
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<p>Multi-stage builds in Dockerfiles are a feature that allows you to create more efficient and smaller Docker images by using multiple build stages.&nbsp;</p><p>This is particularly useful when you're working with complex applications or software stacks where the development and build environment differs from the production environment.&nbsp;</p><p>Multi-stage builds help to separate the build tools and dependencies from the final production image, resulting in a smaller and more secure final image.<br></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Prerequisites</b></h2>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<p>Before diving into this comprehensive guide on Multi-Stage Builds, it's essential to ensure you have the following prerequisites:<br></p>
+											<p style="text-align: justify;"></p><ol><li><b>Basic Understanding of Docker:</b> This blog assumes that you have a foundational knowledge of what Docker is and its core concepts.</li><li><b>Docker Server:&nbsp;</b>To follow along with the hands-on examples in this blog, you'll need access to a Docker server.</li></ol><span class="size-21">If you're new to Docker, it's recommended to begin with my earlier blog posts:</span><br><ol><li><a href="https://www.devopshub.online/blog/docker-and-its-architecture-a-deep-dive" target="_blank" title="">Docker and Its Architecture: A Deep Dive</a></li><li><a href="https://www.devopshub.online/blog/how-to-install-docker-on-ubuntu-22-04-lts-in-aws-cloud" target="_blank" title="">How to Install Docker on Ubuntu 22.04 LTS in AWS Cloud</a></li><li>Mastering Docker Commands: A Complete Hands-On Guide</li><li>A Beginner's Guide to Dockerfile: Start Creating Containers with Docker</li></ol><p></p>
+										</div>
+									</div>
+									<div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Understanding Multi-Stage Builds</b><br></h2><p>Multi-stage builds are a feature introduced in Docker to address a common problem in containerization: image size. Traditional Dockerfiles can produce large, bloated images because they include all the build tools, libraries, and dependencies needed during the build process. However, these components are unnecessary in the final runtime image and can significantly increase the image's size.<br></p><p>Multi-stage builds offer a solution to this problem by allowing you to use multiple "stages" within a single Dockerfile. Each stage represents a distinct phase of the build process, and you can copy artifacts from one stage to another. This separation of concerns enables you to create a minimal runtime image while keeping all the necessary build tools and dependencies in earlier stages.<br></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Benefits of Multi-Stage Builds</b><br></h2><p></p><ol><li><b style="font-weight: bold;">Smaller Image Sizes:</b> The primary advantage of multi-stage builds is the reduction of image size. By discarding unnecessary files and dependencies in the final stage, you can create a lean and efficient runtime image. Smaller images are easier to distribute, resulting in faster deployment times and reduced storage costs.</li><li><b style="font-weight: bold;">Improved Security: </b>Reducing the attack surface by excluding build tools and development dependencies from the runtime image enhances security. Fewer components in the final image mean fewer potential vulnerabilities to exploit.</li><li><span style="font-weight: bold;"><b>Streamlined Build Process:</b> </span>Multi-stage builds help to streamline the build process. Developers can work with a consistent, well-defined set of tools and dependencies during development and testing. The separation of build and runtime stages ensures that only the essentials are included in the final image.</li></ol><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>How to Implement Multi-Stage Builds</b><br></h2><p><b>1. Defining Stages with FROM: </b>In a Dockerfile, you can create multiple build stages by using the <b>FROM</b> instruction. Each <b>FROM</b> instruction starts a new stage, and you can specify a base image for that stage&nbsp;which can have its own <b>RUN</b>, <b>COPY</b>, and other Dockerfile commands.</p><p></p><pre><div>FROM base_image_1 as stage_name_1</div><div># Define instructions for the first stage</div><div><br></div><div>FROM base_image_2 as stage_name_2</div><div># Define instructions for the second stage</div><div><br></div><div># Additional stages if needed</div></pre><ul><li>base_image_1 and base_image_2 are the base images for the first and second stages, respectively. You can choose any Docker image as your base, depending on your project's requirements.</li><li>stage_name_1 and stage_name_2 are user-defined names for the stages. These names are optional but helpful for referencing the stages later in your Dockerfile.</li></ul><span class="size-21"><b>2.&nbsp;Separation of Concerns:&nbsp;</b>Each stage represents a specific phase in your application's build process. For example, the first stage may handle compilation, dependencies installation, and code compilation, while the second stage might focus on creating the final runtime image. The separation allows you to keep only what's necessary for each phase in the respective stages.</span><br><p></p><p><b>3.&nbsp;Copying Artifacts Between Stages:&nbsp;</b>To share files or artifacts between stages, you use the <b>COPY --from=&lt;stage_name&gt;</b> instruction. Let us see an example:</p><p></p><pre><div>FROM base_image_1 as stage_name_1</div><div># Build your application</div><div>RUN some_build_command</div><div># Generate build artifacts</div><div><br></div><div>FROM base_image_2 as stage_name_2</div><div># Copy artifacts from the first stage</div><div>COPY --from=stage_name_1 /path/to/artifacts /destination</div></pre><span class="size-21">In this example, the second stage copies the build artifacts created in the first stage by referencing stage_name_1. This way, you can effectively use only the necessary files in the final image without carrying over build tools or intermediate files.</span><br><p></p>
+										<p><span class="size-21"><b>4. Final Stage:</b> </span>You typically end your Dockerfile with the final stage where you create the runtime image. This stage usually uses a minimal image designed for production, reducing the image size.<span class="size-21"><br></span></p></div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Maven Hello World Project</b><br></h2><p><b>Project repo:&nbsp;</b>https://github.com/sampathshivakumar/my-app.git</p><p>It is a Simple Maven project for Java applications, including a source directory, a <code>pom.xml</code> file, and a sample Java class to get you started with a basic "Hello World" program.</p><img src="/s/articles/65423075e4b03dcd4cbb50fb/images/wzuzXmaven.png" alt="" data-filename="maven.png"></div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Single-stage vs multi-stage Dockerfiles</b><br></h2><p style="height: 50px;">Let us Build Docker images for this Project using both&nbsp;Single-stage and multi-stage Dockerfile so that we can clearly see the advantages of&nbsp;multi-stage Dockerfile.<br></p><img src="/s/articles/65423075e4b03dcd4cbb50fb/images/Xb25Mgitclone.jpg" alt="" data-filename="git clone.jpg"><p><b>Single-stage Dockerfile</b><br></p><p></p><pre><div># Use an official Maven image as a parent image</div><div>FROM maven:3.8.3-openjdk-11 AS builder</div><div><br></div><div># Set the working directory in the container</div><div>WORKDIR /app</div><div><br></div><div># Copy the project's pom.xml and source code</div><div>COPY ./ /app</div><div><br></div><div># Build the Maven project</div><div>RUN mvn clean package</div><div><br></div><div># Use the same builder image to run the Java application</div><div><br></div><div># Define the CMD to run your Java application</div><div>CMD ["java", "-cp", "target/my-app-1.0-SNAPSHOT.jar", "com.mycompany.app.App"]</div></pre><img src="/s/articles/65423075e4b03dcd4cbb50fb/images/8dkeJsingle.jpg" alt="" data-filename="single.jpg"><img src="/s/articles/65423075e4b03dcd4cbb50fb/images/hvyLUsingleoutput.jpg" alt="" data-filename="single output.jpg"><br><p><b>we can see the size of the Docker image we obtained is 681 MB using a Single Dockerfile.</b></p><p>Let us run the docker container to see the output<img src="/s/articles/65423075e4b03dcd4cbb50fb/images/tVoFLsingleoutputcmd.jpg" alt="" data-filename="single output cmd.jpg" style="font-size: 16px;"></p><p><b>Multi-stage Dockerfile</b><br></p><p></p><pre><div># Use an official Maven image as a parent image</div><div>FROM maven:3.8.3-openjdk-11 AS builder</div><div><br></div><div># Set the working directory in the container</div><div>WORKDIR /app</div><div><br></div><div># Copy the project's pom.xml and source code</div><div>COPY ./ /app</div><div><br></div><div># Build the Maven project</div><div>RUN mvn clean package</div><div><br></div><div># Use an official OpenJDK image as a parent image</div><div>FROM openjdk:11-jre-slim</div><div><br></div><div># Set the working directory in the container</div><div>WORKDIR /app</div><div><br></div><div># Copy the JAR file from your local machine to the container</div><div>COPY --from=builder /app/target/*.jar /app/</div><div><br></div><div># Define the CMD to run your Java application</div><div>CMD ["java", "-cp", "my-app-1.0-SNAPSHOT.jar", "com.mycompany.app.App"]</div></pre><img src="/s/articles/65423075e4b03dcd4cbb50fb/images/mqz8Amultioutput.jpg" alt="" data-filename="multi output.jpg"><p></p><p><b>The Multi-Stage Dockerfile results in a much smaller image size of 223MB, which is significantly more compact compared to the Single-Stage Dockerfile's image size of 681MB.</b><br></p></div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Conclusion</b><br></h2><p>In this blog, we've explored what is Multi-Stage Dockerfile and the advantages of it over a Single-Stage Dockerfile when building container images for your applications. <br></p><p>I hope you enjoyed reading this blog and found it informative. If you have any questions or topics you'd like us to cover in future blogs, please don't hesitate to connect with me on LinkedIn.&nbsp;</p><p>Thank you for joining us on this Docker journey.<br></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full">
+											<div class="spacer height-20"></div>
+										</div>
+									</div>
+									<div class="row clearfix">
+										<div class="column sixth">
+											<p><img src="/s/articles/65423075e4b03dcd4cbb50fb/images/Cz2CIsampath.jpg" alt="" style="border-radius: 500px; margin-top: 5px;" data-filename="sampath.jpg"></p>
+										</div>
+										<div class="column two-sixth" autocomplete="off" spellcheck="true">
+											<p style="height: 45px;"><b>{{AUTHOR}}</b><br>AWS &amp; Terraform Certified<br></p><p><a href="https://www.linkedin.com/in/sampathsivakumar-boddeti/" title="" target="_blank" style="background-color: rgb(255, 255, 255); font-size: 16px;"><img src="/s/articles/65423075e4b03dcd4cbb50fb/images/m2Zjplinkedin.png" alt="" data-filename="linkedin.png" style="width: 4.50704%; height: auto;"></a><br></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
