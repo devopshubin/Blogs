@@ -1,0 +1,154 @@
+<div class="is-section is-box is-bg-grey is-section-75" data-cat="101" id="1698379803293">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container is-content-800">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<img src="/s/articles/653b37f7e4b0b932f1b901f3/images/Uaa68k8s.copy.png" alt="" data-filename="k8s. - Copy.png"><h1><b>Installing Kubernetes Cluster using Kubeadm: A Step-by-Step Guide</b></h1>
+											<p>{{DATE}}</p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+<div class="is-section is-section-100 is-box type-teko-muktamahee" data-cat="118" id="1698379803293">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container" style="max-width: 960px;">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Introduction</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p>Kubernetes is an <b>open-source</b> <b>container orchestration platform</b> that has gained immense popularity for its ability to manage containerized applications effortlessly. To set up a Kubernetes cluster, you'll need a tool like <b>Kubeadm</b>, which simplifies the process of bootstrapping a cluster and automating much of the tedious work.&nbsp;</p><p>In this blog, we'll explore what Kubeadm is, why you should use it, and provide a detailed guide on setting up a Kubernetes cluster with <b>one control-plane and two worker nodes on AWS</b>.<br></p><p><br></p><img src="/s/articles/653b37f7e4b0b932f1b901f3/images/Z9XSl1.png" alt="" data-filename="1.png">
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>What is Kubeadm?</b></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p>Kubeadm is a <b>command-line tool</b> that makes it easy to <b>initialize</b>, <b>manage</b>, and <b>upgrade</b> a <b>Kubernetes cluster</b>. It is part of the Kubernetes project and is designed to simplify cluster provisioning and deployment.<br></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Why Use Kubeadm to Set Up a Kubernetes Cluster?</b></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p>Kubeadm offers several advantages when it comes to setting up a Kubernetes cluster:</p><ol><li><b><u>Simplicity</u>:</b> Kubeadm abstracts many of the complexities involved in cluster creation, making it accessible to a wider audience, including developers and administrators who may not have deep Kubernetes expertise.</li><li><b><u>Consistency</u>:</b> Kubeadm follows best practices and Kubernetes conventions, ensuring that your cluster is set up in a consistent and recommended way.</li><li><b><u>Automation</u>: </b>Kubeadm automates the process of initializing the control-plane node, joining worker nodes, and configuring various cluster components. This reduces the chances of human error and saves time.</li><li><b><u>Community Support</u>:</b> Kubeadm is an official Kubernetes project, and its active community provides support, updates, and ongoing development.&nbsp;</li></ol><p><b>Now, let's dive into the step-by-step guide to set up a Kubernetes cluster with one control plane and two worker nodes on AWS using Kubeadm.</b></p><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Prerequisites</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p></p><ol><li>You need an active AWS account to create and manage instances.</li><li><span style="font-size: 1.07rem;">three instances (one for control-plane and two for worker) running a deb/rpm-compatible Linux OS; for example: Ubuntu or CentOS.</span><br></li><li><span style="font-size: 1.07rem;">&nbsp;2 GiB or more of RAM per machine--any less leaves little room for your apps.</span></li><li><span style="font-size: 1.07rem;">At least 2 CPUs on the machine that you use as a control-plane node.<br></span></li><li><span style="font-size: 1.07rem;">Full network connectivity among all machines in the cluster. You can use either a public or a private network.</span></li><li><span style="font-size: 1.07rem;">&nbsp;Open the following ports on the control-plane and worker nodes as shown below.</span></li></ol><p><img src="/s/articles/653b37f7e4b0b932f1b901f3/images/M9f8H1.png" alt="" data-filename="1.png" style="font-size: 16px;"><img src="/s/articles/653b37f7e4b0b932f1b901f3/images/WqLmH4.jpg" alt="" data-filename="4.jpg"><img src="/s/articles/653b37f7e4b0b932f1b901f3/images/1LYhx3.png" alt="" data-filename="3.png" style="font-size: 16px;"><br></p></div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p></p><ol><li>You need an active AWS account to create and manage instances.</li><li><span style="font-size: 1.07rem;">three instances (one for control-plane and two for worker) running a deb/rpm-compatible Linux OS; for example: Ubuntu or CentOS.</span><br></li><li><span style="font-size: 1.07rem;">&nbsp;2 GiB or more of RAM per machine--any less leaves little room for your apps.</span></li><li><span style="font-size: 1.07rem;">At least 2 CPUs on the machine that you use as a control-plane node.<br></span></li><li><span style="font-size: 1.07rem;">Full network connectivity among all machines in the cluster. You can use either a public or a private network.</span></li><li><span style="font-size: 1.07rem;">&nbsp;Open the following ports on the control-plane and worker nodes as shown below.</span></li></ol><p><img src="/s/articles/653b37f7e4b0b932f1b901f3/images/WqLmH4.jpg" alt="" data-filename="4.jpg"><img src="/s/articles/653b37f7e4b0b932f1b901f3/images/1LYhx3.png" alt="" data-filename="3.png" style="font-size: 16px;"><br></p></div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2>Run the following Commands on Both&nbsp;Control-Plane and Worker Nodes.</h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Switch to root user</b><br></h2><p></p><pre>sudo su -</pre><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Disable Swap</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p></p><pre>Kubernetes requires disabling swap to work correctly. You can do this on each node by editing the file: <code>/etc/fstab</code> file.<br></pre><pre>sudo sed -i '/ swap / s/^\(.*\)$/#\1/g' /etc/fstab<br></pre><pre>swapoff -a</pre><span style="font-size: 1.07rem;">Disabling swap when installing Kubernetes is necessary because swap can lead to unpredictable resource usage, performance issues, and instability within the Kubernetes cluster. Kubernetes relies on precise control over system resources for efficient container management, and swap can disrupt this control.</span><br><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Forwarding IPv4 and letting iptables see bridged traffic</b><br></h2><p><b></b></p><pre tabindex="0"><div>cat &lt;&lt;EOF | sudo tee /etc/modules-load.d/k8s.conf</div><div>overlay</div><div>br_netfilter</div><div>EOF</div><div><br></div><div>sudo modprobe overlay</div><div>sudo modprobe br_netfilter</div></pre><pre tabindex="0"># sysctl params required by setup, params persist across reboots
+
+<div>cat &lt;&lt;EOF | sudo tee /etc/sysctl.d/k8s.conf</div><div>net.bridge.bridge-nf-call-iptables     = 1</div><div>net.bridge.bridge-nf-call-ip6tables  = 1</div><div>net.ipv4.ip_forward                               = 1</div><div>EOF</div></pre><pre tabindex="0"><div># Apply sysctl params without reboot </div><div>sudo sysctl --system</div></pre><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false"></div>
+									</div>
+									
+									<div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Verify that the br_netfilter, overlay modules</b><br></h2><div><pre tabindex="0"><div>lsmod | grep br_netfilter </div><div>lsmod | grep overlay</div></pre><pre tabindex="0"><div>Verify that the net.bridge.bridge-nf-call-iptables, net.bridge.bridge-nf-call-ip6tables, and net.ipv4.ip_forward system variables are set to 1 in your sysctl</div></pre><pre tabindex="0">sysctl net.bridge.bridge-nf-call-iptables net.bridge.bridge-nf-call-ip6tables net.ipv4.ip_forward<code data-lang="bash"><b><br></b></code></pre></div>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><strong> Installing a container runtime</strong><br></h2><p><strong></strong></p><pre>apt-get install -y containerd</pre><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b style="color: inherit; font-size: 2rem; letter-spacing: 0px;">Configure the container runtime to use systemd Cgroups.</b></h2><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p>Create default configuration<br></p><pre>mkdir -p /etc/containerd 
+containerd config default &gt; /etc/containerd/config.toml</pre>Edit the configuration to set up CGroups&nbsp;<br>Scroll down till you find a line with SystemdCgroup = false. Edit it to be SystemdCgroup = true, then save and exit vi<br><p></p><p></p><pre class="notranslate">vi /etc/containerd/config.toml<br></pre>Restart contained<p></p><p></p><pre>systemctl restart containerd</pre><p></p></div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b style="color: inherit; font-size: 2rem; letter-spacing: 0px;">These instructions are for Kubernetes 1.28</b><br></h2>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<p>Update the apt&nbsp;package index and install packages needed to use the Kubernetes&nbsp;apt repository:<br></p><pre tabindex="0"><div>sudo apt-get update </div><div># apt-transport-https may be a dummy package; if so, you can skip that package </div><div>sudo apt-get install -y apt-transport-https ca-certificates curl gpg</div></pre>Download the public signing key for the Kubernetes package repositories. The same signing key is used for all repositories so you can disregard the version in the URL:<br><p></p><p></p><pre tabindex="0">curl -fsSL https://pkgs.k8s.io/core:/stable:/v1.28/deb/Release.key | sudo gpg --dearmor -o /etc/apt/keyrings/kubernetes-apt-keyring.gpg<br></pre>Add the appropriate Kubernetes apt repository. <br><p></p><p></p><pre tabindex="0"><div># This overwrites any existing configuration in /etc/apt/sources.list.d/kubernetes.list</div><div>echo 'deb [signed-by=/etc/apt/keyrings/kubernetes-apt-keyring.gpg] https://pkgs.k8s.io/core:/stable:/v1.28/deb/ /' | sudo tee /etc/apt/sources.list.d/kubernetes.list</div></pre>Update the apt package index, install kubelet, kubeadm and kubectl, and pin their version:<p></p><p></p><pre tabindex="0"><div>sudo apt-get update</div><div>sudo apt-get install -y kubelet kubeadm kubectl</div><div>sudo apt-mark hold kubelet kubeadm kubectl</div></pre>Configure crictl&nbsp;<br><p></p><p></p><pre tabindex="0"><div>crictl config \</div><div>    --set runtime-endpoint=unix:///run/containerd/containerd.sock \</div><div>    --set image-endpoint=unix:///run/containerd/containerd.sock</div></pre><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2>Run the following Commands on the Control-Plane Node only.</h2>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full">
+											<div class="spacer height-20"></div>
+										</div>
+									</div>
+									<div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Switch to root user</b><br></h2><p></p><pre>sudo su -</pre><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>To initialize the control plane node run</b><br></h2><p></p><pre>kubeadm init<br></pre><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>To make kubectl work for your non-root user, run these commands</b><br></h2><p></p><pre><div>mkdir -p $HOME/.kube</div><div>sudo cp -i /etc/kubernetes/admin.conf $HOME/.kube/config</div><div>sudo chown $(id -u):$(id -g) $HOME/.kube/config</div></pre><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Install Weave Net</b><br></h2><p></p><pre>kubectl apply -f https://github.com/weaveworks/weave/releases/download/v2.8.1/weave-daemonset-k8s.yaml<br></pre><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Join your worker nodes</b><br></h2><p>You can easily add worker nodes to your Kubernetes cluster by executing the following command on the worker nodes.&nbsp;</p><p>The token required for this operation is generated on the control-plane node:<br></p><p></p><pre>kubeadm join --token &lt;token&gt; &lt;control-plane-host&gt;:&lt;control-plane-port&gt; --discovery-token-ca-cert-hash sha256:&lt;hash&gt;<br></pre><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>You can test the k8s Cluster</b></h2><p></p><pre>kubectl get no              # To list all the nodes</pre><p></p><pre>kubectl get pods -A    #  To list all pods from all namespaces.<img src="/s/articles/653b37f7e4b0b932f1b901f3/images/wZErvtest.jpg" alt="" data-filename="test.jpg" style="background-color: rgb(255, 255, 255); font-size: 16px;"></pre><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false">
+										<div class="column full" spellcheck="false">
+											<h2><b>Conclusion</b><br></h2><p>Kubeadm is a fantastic tool for simplifying the setup of Kubernetes clusters, and in this blog, we've shown you how to create one control-plane and two worker nodes on AWS.</p><p><span style="font-size: 1.07rem;">I hope you enjoyed reading this blog and found it informative. If you have any questions or topics you'd like us to cover in future blogs, please don't hesitate to connect with me on LinkedIn.&nbsp;</span></p><p><span style="font-size: 1.07rem;">Thank you for joining us on this Kubernetes journey,</span></p><p></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column sixth">
+											<p><img src="/s/articles/653b37f7e4b0b932f1b901f3/images/o9N0Esampath.jpg" alt="" style="border-radius: 500px; margin-top: 5px;" data-filename="sampath.jpg"></p>
+										</div>
+										<div class="column two-sixth" autocomplete="off" spellcheck="true">
+											<p style="height: 45px;"><b>{{AUTHOR}}</b><br>AWS &amp; Terraform Certified</p><a href="https://www.linkedin.com/in/sampathsivakumar-boddeti/" title="" target="_blank"><img src="/s/articles/653b37f7e4b0b932f1b901f3/images/n9Lnvunnamed.png" alt="" data-filename="unnamed.png" style="width: 3.80282%; height: auto;"></a>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
