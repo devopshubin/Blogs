@@ -1,0 +1,67 @@
+<div class="is-section is-box is-bg-grey is-dark-text is-section-20" data-cat="101" id="1699356728237">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container" style="max-width: 800px;">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;<img src="/s/articles/654a2030e4b0c9183b80ca4b/images/gCazu3removebgpreview.png" alt="" data-filename="3-removebg-preview.png"><h1><b>GitOps: Streamlining DevOps with Version Control</b></h1>&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+											<p><span style="font-size: 1.07rem;">{{DATE}}</span><br></p>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
+<div class="is-section is-section-100 is-box type-teko-muktamahee" data-cat="118" id="1699356728237">
+						<div class="is-boxes">
+							<div class="is-box-centered">
+								<div class="is-container container" style="max-width: 960px;">
+									<div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Introduction</b><br></h2><p>In the fast-paced world of software development, continuous delivery and reliable deployment are crucial. GitOps, a modern approach to managing infrastructure and application configurations, has emerged as a powerful method for ensuring smooth, automated, and version-controlled deployments.&nbsp;</p><p>This blog will look into GitOps, covering its basic concepts, types of code involved, its evolution from manual processes, principles and architecture, use cases, deployment types, and a real-time example.<br></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>What is GitOps?</b></h2><p>GitOps is a set of practices and principles that leverage version control systems, like Git, to manage and automate the deployment and configuration of software systems. It promotes the idea that the entire desired state of your infrastructure and applications should be stored in a Git repository, making the Git repository the source of truth for your system.<br></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Types of Code </b><br></h2><p>There are two primary categories of code involved in modern software development:<br></p><p><b><u>Application Code</u>:</b> This includes the source code of your application, which is stored in version control repositories like Git. Changes to application code trigger automated pipelines that build, test, and deploy the application.</p><p><b><u>Configuration Code</u>:</b> This code defines the desired state of the infrastructure and application. Configuration code is stored in Git repositories and specifies how infrastructure and applications should be provisioned and configured. Tools like Helm charts for Kubernetes or Terraform for infrastructure are often used for configuration code.</p><p><span style="font-size: 1.07rem;">Prior to the adoption of GitOps, configuration code was often deployed manually. However, with GitOps practices, configuration code is automated in much the same way as application code, streamlining the entire development and deployment process.</span></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>The core principles of GitOps</b></h2><p></p><p><span style="font-size: 21.4px;"></span></p><p><span style="font-size: 21.4px;"></span></p><ol><li><b><u>Declarative Infrastructure:</u></b> GitOps relies on a declarative approach, where you describe the desired state of your infrastructure and applications in Git repositories. The repository becomes a single source of truth for your entire system.</li><li><b><u>Version Control:</u></b> GitOps leverages the version control capabilities of Git to manage configurations, code, and deployment manifests. Changes to the infrastructure and application definitions are tracked in the repository.</li><li><b><u>Continuous Synchronization:</u></b> An operator or a GitOps tool continuously synchronizes the desired state defined in the Git repository with the actual state of the cluster, ensuring that the cluster stays in the desired state.</li><li><u><b>Automated Workflows:</b></u> GitOps encourages automation by using CI/CD pipelines to automatically apply changes to the cluster when updates are pushed to the Git repository.</li></ol><p></p><p></p><p></p>
+										</div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>GitOps Use Cases</b></h2><p></p><ol><li><b><u>Kubernetes and Cloud-Native Deployments</u>:</b> GitOps is widely adopted in the Kubernetes ecosystem. It simplifies the management of Kubernetes clusters, ensuring that the cluster state matches the configuration stored in Git. Tools like ArgoCD, Flux, and Helm are commonly used for GitOps in Kubernetes.</li><li><b><u>Multi-Cloud and Hybrid Cloud Environments</u>: </b>GitOps can manage infrastructure and application deployments across multiple cloud providers or in hybrid cloud scenarios. This is crucial for organizations looking to maintain consistency and avoid vendor lock-in.<br></li><li><b><u>Infrastructure as Code (IaC)</u>: </b>GitOps is often used in conjunction with Infrastructure as Code (IaC) tools like Terraform and AWS CloudFormation. By storing IaC code in Git repositories and automating changes, GitOps streamlines infrastructure management.<br></li><li><b><u>Compliance and Security</u>:</b> GitOps can enhance security and compliance efforts. By maintaining a transparent audit trail in Git, organizations can easily demonstrate compliance with regulatory requirements.<br></li></ol><p></p>
+										</div>
+									</div><div class="row clearfix" draggable="false" style="transform: translateZ(0px);">
+										<div class="column full" spellcheck="false">
+											<h2><b>EKS Deployment: Traditional vs. GitOps way</b><br></h2><p><b><u>Case 1</u>:</b> <b><u>Traditional Approach&nbsp;</u></b></p><p>In the traditional deployment approach, the process involves manual intervention and separate tools for building and deploying the application to the EKS cluster. Here's a step-by-step breakdown:<br></p><p><img src="/s/articles/654a2030e4b0c9183b80ca4b/images/6met01.png" alt="" data-filename="1.png" style="font-size: 16px;"><br></p><p></p><ol><li><u><b>Developer Commit and Build:</b></u> Developers commit code changes to a version control system (e.g., GitHub). Jenkins is configured with webhooks to automatically detect these commits and trigger the build process.</li><li><b><u>Docker Image Build:</u></b> Jenkins retrieves the code from the repository, compiles it, and builds Docker images. These images are then tagged and pushed to a private Docker image registry (e.g., Nexus).</li><li><b><u>Kubernetes Deployment:</u></b> After the Docker images are successfully stored, Jenkins uses kubectl commands to apply Kubernetes manifest files to the EKS cluster. These manifests reference the Docker images from the private registry, creating pods and other resources.</li></ol><br><b class="size-21"><u>Case 2</u>: <u>GitOps Approach</u>&nbsp;</b><p></p><p>With GitOps, the deployment process is more streamlined and automated:<br></p><img src="/s/articles/654a2030e4b0c9183b80ca4b/images/cZazr2.png" alt="" data-filename="2.png"><p></p><ol><li><b><u>Code Commit and GitOps Repository:</u></b> Developers commit code changes to the version control system. In addition to the application code repository, a separate GitOps repository stores Kubernetes manifest files.</li><li><b><u>ArgoCD in EKS:</u></b> Argocd is installed in the EKS cluster and configured to watch the GitOps repository for changes. This repository contains the declarative Kubernetes manifest files for the application.</li><li><u><b>Automatic Synchronization:</b></u> When changes are made to the Kubernetes manifest files in the GitOps repository, ArgoCD automatically detects these changes and synchronizes the EKS cluster to match the desired state defined in the manifests. It can trigger image updates and deployments as needed.</li></ol><span class="size-21">GitOps simplifies the deployment process through automation, version control, and declarative management, reducing manual steps and enhancing security and reliability.</span><br><p></p></div>
+									</div><div class="row clearfix">
+										<div class="column full" spellcheck="false">
+											<h2><b>Conclusion</b></h2><p>GitOps will play a pivotal role in helping organizations achieve faster and more reliable releases while maintaining compliance and security. Embracing GitOps is a step toward a more efficient and agile development pipeline.<br></p><p>I hope you enjoyed reading this blog and found it informative. If you have any questions or topics you'd like us to cover in future blogs, please don't hesitate to connect with me on LinkedIn.&nbsp;</p><p>Thank you for joining us on this GitOps journey.<br></p>
+										</div>
+									</div>
+									
+									<div class="row clearfix">
+										<div class="column full">
+											<div class="spacer height-20"></div>
+										</div>
+									</div>
+									<div class="row clearfix">
+										<div class="column sixth">
+											<p><img src="/s/articles/654a2030e4b0c9183b80ca4b/images/frwj9sampath.jpg" alt="" style="border-radius: 500px; margin-top: 5px;" data-filename="sampath.jpg"></p>
+										</div>
+										<div class="column two-sixth" autocomplete="off" spellcheck="true">
+											<p style="height: 45px;"><b>{{AUTHOR}}</b><br>AWS &amp; Terraform Certified<a href="https://www.linkedin.com/in/sampathsivakumar-boddeti/" title="" target="_blank"></a></p><a href="https://www.linkedin.com/in/sampathsivakumar-boddeti/" title="" target="_blank"><img src="/s/articles/654a2030e4b0c9183b80ca4b/images/UO4bjlinkedin.png" alt="" data-filename="linkedin.png" style="height: 30px;"></a>
+											
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+
